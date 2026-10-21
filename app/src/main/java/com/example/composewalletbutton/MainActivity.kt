@@ -27,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
+import com.google.wallet.button.AddToWalletButton
 import com.google.wallet.button.ButtonType
 import com.google.wallet.button.WalletButton
 
@@ -53,6 +54,9 @@ class MainActivity : ComponentActivity() {
 
                     // Condensed version
                     WalletButton(onClick = onClick, type = ButtonType.AddCondensed)
+
+                    // AddToWalletButton alias
+                    AddToWalletButton(onClick = onClick)
                 }
             }
         }

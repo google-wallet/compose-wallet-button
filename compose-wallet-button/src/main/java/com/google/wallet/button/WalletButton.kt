@@ -24,9 +24,9 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
@@ -42,27 +42,47 @@ fun WalletButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     type: ButtonType = ButtonType.Add,
+    enabled: Boolean = true,
 ) {
     Box(
+        contentAlignment = Alignment.Center,
         modifier = modifier
             .padding(8.dp)
             .width(type.width)
             .height(48.dp)
-            .clip( RoundedCornerShape(24.dp) )
-            .background(Color(0xFF1F1F1F))
+            .clip(RoundedCornerShape(24.dp))
+            .background(Color.Black)
             .border(
                 width = 1.dp,
                 color = Color(0xFF747675),
                 shape = RoundedCornerShape(24.dp)
             )
-            .clickable { onClick() }
+            .clickable(enabled = enabled) { onClick() }
     ) {
         Image(
             alignment = Alignment.Center,
-            contentScale = ContentScale.None,
-            modifier = modifier.fillMaxSize(),
+            contentScale = ContentScale.Fit,
+            modifier = Modifier.fillMaxSize(),
             painter = painterResource(id = type.resourceId),
             contentDescription = null,
         )
     }
+}
+
+/**
+ * Convenience alias for [WalletButton] matching the Google Wallet button documentation.
+ */
+@Composable
+fun AddToWalletButton(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    type: ButtonType = ButtonType.Add,
+    enabled: Boolean = true,
+) {
+    WalletButton(
+        onClick = onClick,
+        modifier = modifier,
+        type = type,
+        enabled = enabled,
+    )
 }
