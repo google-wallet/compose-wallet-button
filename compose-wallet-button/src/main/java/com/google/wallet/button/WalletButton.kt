@@ -44,6 +44,7 @@ fun WalletButton(
     modifier: Modifier = Modifier,
     type: ButtonType = ButtonType.Add,
     enabled: Boolean = true,
+    contentScale: ContentScale = ContentScale.Fit,
 ) {
     Box(
         contentAlignment = Alignment.Center,
@@ -62,7 +63,7 @@ fun WalletButton(
     ) {
         Image(
             alignment = Alignment.Center,
-            contentScale = ContentScale.Fit,
+            contentScale = contentScale,
             modifier = Modifier.fillMaxSize(),
             painter = painterResource(id = type.resourceId),
             contentDescription = stringResource(id = R.string.add_to_google_wallet_button_content_description),
@@ -79,11 +80,13 @@ fun AddToWalletButton(
     modifier: Modifier = Modifier,
     type: ButtonType = ButtonType.Add,
     enabled: Boolean = true,
+    contentScale: ContentScale = ContentScale.Fit,
 ) {
     WalletButton(
         onClick = onClick,
         modifier = modifier,
         type = type,
         enabled = enabled,
+        contentScale = contentScale,
     )
 }
