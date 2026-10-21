@@ -18,6 +18,7 @@ package com.google.wallet.button
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -49,6 +50,11 @@ fun WalletButton(
             .height(48.dp)
             .clip( RoundedCornerShape(24.dp) )
             .background(Color(0xFF1F1F1F))
+            .border(
+                width = 1.dp,
+                color = Color(0xFF747675),
+                shape = RoundedCornerShape(24.dp)
+            )
             .clickable { onClick() }
     ) {
         Image(
