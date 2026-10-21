@@ -29,6 +29,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
@@ -64,7 +65,7 @@ fun WalletButton(
             contentScale = ContentScale.Fit,
             modifier = Modifier.fillMaxSize(),
             painter = painterResource(id = type.resourceId),
-            contentDescription = null,
+            contentDescription = stringResource(id = R.string.add_to_google_wallet_button_content_description),
         )
     }
 }
